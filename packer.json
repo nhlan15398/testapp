@@ -12,7 +12,7 @@
         "communicator": "ssh",
         "associate_public_ip_address": true,
         "subnet_id": "{{user `subnet_id`}}",
-        "ami_name": "{{user `ami_name`}}-{{user `timestap`}}",
+        "ami_name": "{{user `ami_name`}}-{{user `environment`}}",
         "source_ami_filter": {
             "filters": {
                 "virtualization-type": "hvm",
@@ -23,7 +23,7 @@
             "most_recent": true
         },
         "run_tags": {
-            "Name": "{{user `Name`}}-{{user `timestap`}}"
+            "Name": "{{user `Name`}}-{{user `environment`}}"
         }
     }],
     "provisioners": [
@@ -40,7 +40,7 @@
             "type": "ansible-local",
             "playbook_file": "./provisioners/ansible/playbook.yaml",
             "inventory_file": "./provisioners/ansible/inventories/hosts",
-            "group_vars": "./provisioners/ansible/inventories/group_vars/{{user `timestap`}}",
+            "group_vars": "./provisioners/ansible/inventories/group_vars/{{user `environment`}}",
             "role_paths": [
                 "./provisioners/ansible/roles/create",
                 "./provisioners/ansible/roles/java",

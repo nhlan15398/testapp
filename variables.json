@@ -9,5 +9,5 @@
     "security_group_id": "sg-0c7939c5be569a560",
     "instance_type": "t2.micro",
     "Name": "test",
-    "timestap": ""
+    "environment": ""
 }
