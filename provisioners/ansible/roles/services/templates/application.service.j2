@@ -1,0 +1,15 @@
+[Unit]
+Description="{{ application_name }}"
+After=syslog.target
+After=network.target
+User= "{{ project.username}}"
+Type=simple
+
+[Service]
+ExecStart=/usr/bin/java -jar "{{ folder_deploy }}/{{ application_name }}.jar"
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+---
+- name: Create group
+  group:
+    name: "{{project.group}}"
+    state: present
+
+- name: Create user
+  user:
+    name: "{{ project.username }}"
+    shell: "{{ default_shell }}"
+    home: "/home/{{project.username}}"
+    group: "{{project.group}}"
+    append: "yes"

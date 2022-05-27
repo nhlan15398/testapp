@@ -1,0 +1,24 @@
+# Start application
+- name: "Start application"
+  service:
+    name: "{{ application_name }}"
+    enabled: yes
+    daemon-reload: yes
+    state: started
+  become: true
+# Stop application
+- name: "Stop application"
+  service:
+    name: "{{ application_name }}"
+    enabled: yes
+    daemon-reload: yes
+    state: stopped
+  become: true
+# Restart application
+- name: "Restart application"
+  service:
+    name: "{{ application_name }}"
+    enabled: yes
+    daemon-reload: yes
+    state: restarted
+  become: true

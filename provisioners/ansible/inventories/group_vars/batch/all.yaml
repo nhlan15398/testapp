@@ -1,0 +1,20 @@
+---
+#Project User,Group and default_shell
+project:
+  username: "hoanglan"
+  group: "hoanglan"
+default_shell: "/bin/bash"
+
+# home_parnet directory
+home_parent_directory: /opt
+
+#Java
+java_url: https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+java_version: 11.0.2
+java_env_file: /etc/profile.d/java.sh
+
+#application
+application_name: none
+folder_deploy: /home/{{ project.username }}/{{ application_name }}
+services_folder: /usr/lib/systemd/system
+script: "{{ services_folder }}/{{ application_name }}.service"
